@@ -63,7 +63,7 @@ conn.ev.on('connection.update', (update) => {
 
 
 function title() {
-      // console.clear()
+      console.clear()
 	  console.log(chalk.bold.green(figlet.textSync('Bot Keishu', {
 		font: 'Standard',
 		horizontalLayout: 'default',
