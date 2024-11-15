@@ -19,7 +19,7 @@ $ npm i
 $ npm start
 
 Masukan Pairing Code 🕺🏻
-(Tanpa QR, ini yang kalian cari? wkwk)
+(Tanpa QR, ini yang kalian cari?)
 ```
 ## NOTES
 * Setting Nomor Owner [`Setting`](https://github.com/FebbAdityaN/whatsbot/blob/3a805f25329e6c4201079d2453b69b2b49e86661/message/msg.js#L45)
