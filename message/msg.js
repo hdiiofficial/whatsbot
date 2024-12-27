@@ -119,12 +119,7 @@ _Media yang di privasi, tidak dapat di unduh._
 				if (args.length < 2) return reply(`Input link dari Instagram, untuk mendownload media yang di inginkan.`)
 				insta.rahadinsta(q).then(dataIG => {
 				reactMessage("❤️")
-			        if (dataIG.data) {
-				  for (let v of dataIG.data) {
-				    new Promise(resolve => setTimeout(resolve, 2000));
-				    conn.sendMessage(from, {video: {url: v.video_url}}, {quoted: msg})
-				  }
-				}
+			        conn.sendMessage(from, {video: {url: dataIG.data.video_url}}, {quoted: msg})
 				}).catch(e => reply('Maaf terjadi kesalahan, sistem error atau link yang dikirimkan tidak benar.'))
 				break
 			case '#twtdl':
@@ -156,7 +151,7 @@ _Media yang di privasi, tidak dapat di unduh._
 				if (args.length < 2) return reply(`Input link untuk mendownload video dari TikTok.`)
 				reactMessage("❤️")
 				ttdl(q).then(data => {
-				   var dataTT = `\`\`\`Video Ditemukan\`\`\`\n\n*Username:* ${data.username}\n*Publish:* ${data.published}\n*Likes:* ${data.like}\n*Views:* ${data.views}\n\n\`\`\`Enjoy!\`\`\``
+				   var dataTT = `\`\`\`Video Ditemukan\`\`\`\n\n*Username:* ${data.username}\n*Publish:* ${data.published}\n*Likes:* ${data.like}\n*Views:* ${data.views}\n\n\`\`\`Octa Cantik!\`\`\``
 				   conn.sendMessage(from, { video: { url: data.video_hd }, caption: dataTT }, { quoted: msg })
 				   reply(`Jika kamu ingin mendownload background musik nya:\n${data.music}\n\n\`\`\`Sedang mengirim video...\`\`\``)
 				}).catch(e => {
