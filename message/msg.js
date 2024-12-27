@@ -118,15 +118,10 @@ _Media yang di privasi, tidak dapat di unduh._
 				if (args.length < 2) return reply(`Input link dari Instagram, untuk mendownload media yang di inginkan.`)
 				insta.rahadinsta(q).then(dataIG => {
 				reactMessage("❤️")
-				if (dataIG.data) {
-				  for (let i of dataIG.image) {
-				     conn.sendMessage(from, {image: {url: i}}, {quoted: msg})
-				     }
-				}
-				if (dataIG.data) {
-				  for (let v of dataIG.video) {
+			        if (dataIG.data) {
+				  for (let v of dataIG.data) {
 				    new Promise(resolve => setTimeout(resolve, 2000));
-				    conn.sendMessage(from, {video: {url: v.video}}, {quoted: msg})
+				    conn.sendMessage(from, {video: {url: v.video_url}}, {quoted: msg})
 				  }
 				}
 				}).catch(e => reply('Maaf terjadi kesalahan, sistem error atau link yang dikirimkan tidak benar.'))
