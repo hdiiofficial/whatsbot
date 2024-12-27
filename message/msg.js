@@ -9,6 +9,7 @@ require('dotenv').config();
 const { downloadMediaMessage } = require("@whiskeysockets/baileys");
 const { color } = require("../lib/color");
 const fs = require("fs");
+const insta = require('rahad-media-downloader');
 const path = require("path");
 const moment = require("moment-timezone");
 const util = require("util");
