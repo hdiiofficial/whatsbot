@@ -92,9 +92,6 @@ module.exports = async (conn, msg, m) => {
                var textReply = `Hai ${pushname} 👋🏻
 Aku adalah Bot WhatsApp, aku dapat mengunduh media seperti yang ada dibawah ini, dan juga di support oleh kecerdasan buatan (AI).
 
-✨ *GEMINI AI* adalah platform kecerdasan buatan (AI) dari Google yang dapat membantu berbagai tugas dan data pengguna.
-• *Penggunaan* : _Ajukan pertanyaan langsung tanpa perintah apa pun_
-
 📢 *YOUTUBE DOWNLOADER*
 • *Perintah* : #mp3 / #mp4 _input judul_
 • *Contoh* : #mp3 / #mp4 birds of a feather
@@ -114,7 +111,7 @@ Aku adalah Bot WhatsApp, aku dapat mengunduh media seperti yang ada dibawah ini,
 _Media yang di privasi, tidak dapat di unduh._
 
 (n) tolong gunakan bot dengan bijak.
-*Bot Created By @febbyadityan*`
+*Bot Created By @octa*`
 				reply(textReply)
 				break
 			case '#igdl':
