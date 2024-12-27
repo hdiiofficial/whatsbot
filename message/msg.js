@@ -205,18 +205,6 @@ _Media yang di privasi, tidak dapat di unduh._
 				break
 		default:
 			if (!chats) return
-			if (isGroup) return // tidak dapat digunakan didalam grup
-			if (!['conversation', 'extendedTextMessage'].includes(msg.type)) return reply(`Maaf, aku hanya menerima pesan teks!`)
-			console.log("->[\x1b[1;32mNew\x1b[1;37m]", color('Question From', 'yellow'), color(pushname, 'lightblue'), `: "${chats}"`)
-			conn.sendPresenceUpdate("composing", from);
-			try {
-			    const response = await model.generateContent(chats);
-			    reply(response.response.text())
-			    reactMessage("❤️")
-			} catch(e) {
-			    console.log(e)
-			    reply("Server error, coba lain waktu:(")
-			}
 			break
     }
   } catch (err) {
