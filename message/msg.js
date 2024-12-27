@@ -29,7 +29,6 @@ moment.tz.setDefault("Asia/Jakarta").locale("id");
 
 module.exports = async (conn, msg, m) => {
 	try {
-		if (msg.key.fromMe) return
 		const { type, isQuotedMsg, quotedMsg, mentioned, now, fromMe } = msg;
 		const toJSON = (j) => JSON.stringify(j, null, "\t");
 		const messageType = Object.keys(msg.message)[0]
@@ -91,7 +90,7 @@ module.exports = async (conn, msg, m) => {
 			case '#menu':
 			case '#help':
                var textReply = `Hai ${pushname} 👋🏻
-Aku adalah Bot WhatsApp, aku dapat mengunduh media seperti yang ada dibawah ini, dan juga di support oleh kecerdasan buatan (AI).
+Aku adalah Bot WhatsApp, aku dapat mengunduh media seperti yang ada dibawah ini, dan juga di buat Khusus Ndoro Octavia Ramadani.
 
 📢 *YOUTUBE DOWNLOADER*
 • *Perintah* : #mp3 / #mp4 _input judul_
@@ -112,7 +111,7 @@ Aku adalah Bot WhatsApp, aku dapat mengunduh media seperti yang ada dibawah ini,
 _Media yang di privasi, tidak dapat di unduh._
 
 (n) tolong gunakan bot dengan bijak.
-*Bot Created By @octa*`
+*Bot Created By @octacantik💓*`
 				reply(textReply)
 				break
 			case '#igdl':
