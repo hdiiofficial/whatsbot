@@ -75,7 +75,7 @@ module.exports = async (conn, msg, m) => {
 		}
 		
 			
-		conn.readMessages([msg.key]);
+		
 		conn.sendPresenceUpdate("available", from);
 		
 		if (!isGroup && isCmd && !fromMe) {
@@ -116,14 +116,14 @@ _Media yang di privasi, tidak dapat di unduh._
 				break
 			case '#igdl':
 				if (args.length < 2) return reply(`Input link dari Instagram, untuk mendownload media yang di inginkan.`)
-				insta(q).then(dataIG => {
+				insta.rahadinsta(q).then(dataIG => {
 				reactMessage("❤️")
-				if (dataIG.image) {
+				if (dataIG.data) {
 				  for (let i of dataIG.image) {
 				     conn.sendMessage(from, {image: {url: i}}, {quoted: msg})
 				     }
 				}
-				if (dataIG.video) {
+				if (dataIG.data) {
 				  for (let v of dataIG.video) {
 				    new Promise(resolve => setTimeout(resolve, 2000));
 				    conn.sendMessage(from, {video: {url: v.video}}, {quoted: msg})
