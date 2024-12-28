@@ -116,10 +116,13 @@ _Media yang di privasi, tidak dapat di unduh._
 				break
 			case '#igdl':
 				if (args.length < 2) return reply(`Input link dari Instagram, untuk mendownload media yang di inginkan.`)
-				insta.rahadinsta(q).then(dataIG => {
-				reactMessage("❤️")
-			        conn.sendMessage(from, {video: {url: dataIG.data.video_url}}, {quoted: msg})
-				}).catch(e => reply('Maaf terjadi kesalahan, sistem error atau link yang dikirimkan tidak benar.'))
+				try {
+					let ress = await fetch(`https://api.neekoi.me/api/igdl?url=${q}`);
+                                        let res = await ress.json();
+                                        await conn.sendMessage(from, {video: {url: res.result.data[0].url}})
+				} catch (error) {
+					return reply(`An error occurred: ${error.message}`)
+				}
 				break
 			case '#twtdl':
 			case '#xdl':
