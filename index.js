@@ -51,7 +51,7 @@ const pairingCodeEnabled = true || process.argv.includes('--use-pairing-code');
 const useMobileAPI = process.argv.includes('--mobile');
 
 
-const startWhatsapp() {
+const startWhatsapp() = async => () {
 	const { state, saveCreds } = await useMultiFileAuthState("./sessions");
 }
 
