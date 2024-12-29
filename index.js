@@ -67,6 +67,42 @@ const startWhatsapp() = async => () {
 		browser: ['WhatsappBot By Octaviani'],
 	})
 	store.bind(conn.ev)
+	if (pairingCodeEnabled && !conn.authState.creds.registered) {
+		if (useMobileAPI) {
+			throw new Error('Cannot use pairing code with mobile API');
+		}
+
+		let phoneNumber = await getPhoneNumber();
+
+		setTimeout(async () => {
+			let pairingCode = await conn.requestPairingCode(phoneNumber);
+		        pairingCode = formatPairingCode(pairingCode);
+		        console.log('Your pairing code:', pairingCode);
+		}, 0);
+	}
+
+	async function getPhoneNumber() {
+		let phoneNumber;
+		while (!phoneNumber) {
+			phoneNumber = await question('Please enter your WhatsApp number (example: 628xxx): ');
+			phoneNumber = phoneNumber.replace(/[^0-9]/g, '');
+
+			if (!isValidPhoneNumber(phoneNumber)) {
+				console.log('Please enter a WhatsApp number starting with the country code, e.g., 628xxxx');
+				phoneNumber = null; // Reset to prompt again
+			}
+		}
+		return phoneNumber;
+	}
+
+	function isValidPhoneNumber(phoneNumber) {
+		return Object.keys(PHONENUMBER_MCC).some(code => phoneNumber.startsWith(code));
+	}
+
+        function formatPairingCode(pairingCode) {
+                return pairingCode.match(/.{1,4}/g).join('-') || pairingCode;
+        }
+	
 }
 
 conn.ev.on('connection.update', (update) => {
