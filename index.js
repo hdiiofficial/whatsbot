@@ -66,6 +66,7 @@ const startWhatsapp() = async => () {
 		},
 		browser: ['WhatsappBot By Octaviani'],
 	})
+	store.bind(conn.ev)
 }
 
 conn.ev.on('connection.update', (update) => {
