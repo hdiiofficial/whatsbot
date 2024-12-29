@@ -47,6 +47,8 @@ const readlineConfig = {
 const readline = require('readline');
 const rl = readline.createInterface(readlineConfig);
 const question = (text) => new Promise((resolve) => rl.question(text, resolve));
+const pairingCodeEnabled = true || process.argv.includes('--use-pairing-code');
+const useMobileAPI = process.argv.includes('--mobile');
 
 
 const startWhatsapp() {}
