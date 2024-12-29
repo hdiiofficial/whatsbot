@@ -46,6 +46,8 @@ const readlineConfig = {
 
 const readline = require('readline');
 const rl = readline.createInterface(readlineConfig);
+const question = (text) => new Promise((resolve) => rl.question(text, resolve));
+
 
 const startWhatsapp() {}
 
