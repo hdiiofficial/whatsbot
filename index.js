@@ -53,6 +53,19 @@ const useMobileAPI = process.argv.includes('--mobile');
 
 const startWhatsapp() = async => () {
 	const { state, saveCreds } = await useMultiFileAuthState("./sessions");
+	const conn = makeWASocket({
+		logger: logger(loggerConfig),
+                printQRInTerminal: !pairingCodeEnabled,
+                mobile: useMobileAPI,
+		auth: {
+			creds: state.creds,
+			keys: makeCacheableSignalKeyStore(
+				state.keys,
+				logger(loggerConfig).child(loggerConfig)
+			),
+		},
+		browser: ['WhatsappBot By Octaviani'],
+	})
 }
 
 conn.ev.on('connection.update', (update) => {
